@@ -19,7 +19,7 @@ standard usage. Eg.
 
 ```go
     import (
-        "github.com/gostores/gonote"
+        "github.com/gostores/notepad"
     )
 
     ...
@@ -30,7 +30,7 @@ standard usage. Eg.
         // it. It will be printed to the terminal as well as logged under the
         // default thresholds.
 
-        gonote.ERROR.Println(err)
+        notepad.ERROR.Println(err)
     }
 
     if err2 != nil {
@@ -39,21 +39,21 @@ standard usage. Eg.
         // expects. Under the default thresholds, Warn will be logged, but
         // not printed to the terminal. 
 
-        gonote.WARN.Println(err2)
+        notepad.WARN.Println(err2)
     }
 
     // Information that’s relevant to what’s happening, but not very
     // important for the user. Under the default thresholds this will be
     // discarded.
 
-    gonote.INFO.Printf("information %q", response)
+    notepad.INFO.Printf("information %q", response)
 
 ```
 
 NOTE: You can also use the library in a non-global setting by creating an instance of a Notebook:
 
 ```go
-notepad = gonote.NewNotepad(gonote.LevelInfo, gonote.LevelTrace, os.Stdout, ioutil.Discard, "", log.Ldate|log.Ltime)
+notepad = notepad.NewNotepad(notepad.LevelInfo, notepad.LevelTrace, os.Stdout, ioutil.Discard, "", log.Ldate|log.Ltime)
 notepad.WARN.Println("Some warning"")
 ```
 
@@ -64,7 +64,7 @@ are probably correct. Just because there are seven levels doesn’t mean
 that you should be using all 7 levels. Pick the right set for your needs.
 Remember they only have to mean something to your project.
 
-## Step 2. Optionally configure gonote
+## Step 2. Optionally configure notepad
 
 Under the default thresholds :
 
@@ -84,27 +84,27 @@ verbosity.
 
 ```go
     import (
-        "github.com/gostores/gonote"
+        "github.com/gostores/notepad"
     )
 
     if Verbose {
-        gonote.SetLogThreshold(gonote.LevelTrace)
-        gonote.SetStdoutThreshold(gonote.LevelInfo)
+        notepad.SetLogThreshold(notepad.LevelTrace)
+        notepad.SetStdoutThreshold(notepad.LevelInfo)
     }
 ```
 
-Note that gonote's own internal output uses log levels as well, so set the log
+Note that notepad's own internal output uses log levels as well, so set the log
 level before making any other calls if you want to see what it's up to.
 
 
 ### Setting a log file
 
-gonote can log to any `io.Writer`:
+notepad can log to any `io.Writer`:
 
 
 ```go
 
-    gonote.SetLogOutput(customWriter) 
+    notepad.SetLogOutput(customWriter) 
 
 ```
 

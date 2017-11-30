@@ -1,4 +1,4 @@
-package gonote
+package notepad
 
 import (
 	"fmt"
