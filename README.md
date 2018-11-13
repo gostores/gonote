@@ -19,7 +19,7 @@ standard usage. Eg.
 
 ```go
     import (
-        "github.com/gostores/notepad"
+        "github.com/govenue/notepad"
     )
 
     ...
@@ -84,7 +84,7 @@ verbosity.
 
 ```go
     import (
-        "github.com/gostores/notepad"
+        "github.com/govenue/notepad"
     )
 
     if Verbose {

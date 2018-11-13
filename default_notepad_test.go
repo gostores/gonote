@@ -6,7 +6,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/gostores/require"
+	"github.com/govenue/require"
 )
 
 func TestThresholds(t *testing.T) {
